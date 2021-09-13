@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mssm.goods.mapper.GoodssizeMapper">
+    <!--添加-->
+    <insert id="add" parameterType="com.mssm.common.domain.Goodssize">
+        insert into goodssize (goods_id, size_id, size_name)
+        values (#{goodsId},#{sizeId},#{sizeName})
+    </insert>
+</mapper>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mssm.photo.mapper.PhotoMapper">
+
+    <!--1.添加-->
+    <insert id="add" parameterType="com.mssm.common.domain.Photo" useGeneratedKeys="true" keyProperty="id">
+        insert into photo (source, file_id, url) values (#{source},#{fileId},#{url})
+    </insert>
+
+    <!--2.修改-->
+    <update id="updatePhoto" parameterType="com.mssm.common.domain.Photo">
+        update photo set fid=#{fid} where id=#{id}
+    </update>
+
+    <!--3.获取指定资源图片列表-->
+    <select id="queryBySource" resultType="com.mssm.common.domain.Photo">
+        select *
+          from photo
+         where source=#{source}
+           and fid IS NULL
+    </select>
+</mapper>

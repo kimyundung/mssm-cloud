@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mssm.goods.mapper.GoodscolorMapper">
+    <!--添加-->
+    <insert id="add" parameterType="com.mssm.common.domain.Goodscolor">
+        insert into goodscolor (goods_id, color_id, color_name)
+        values (#{goodsId},#{colorId},#{colorName})
+    </insert>
+</mapper>

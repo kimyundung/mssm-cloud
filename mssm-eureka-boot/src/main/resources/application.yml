@@ -1,0 +1,19 @@
+server:
+  port: 9100
+
+spring:
+  application:
+    name: mssm-eureka-boot
+
+eureka:
+  instance:
+    prefer-ip-address: true #使用ip注册，否则会使用主机名注册了（此处考虑到对老版本的兼容，新版本经过实验都是ip）
+    instance-id: ${spring.cloud.client.ip-address}:${spring.application.name}:${server.port}:@project.version@
+  client: #作为客户端向Eureka服务器注册(单例自己想自己注册)
+    service-url:
+      defaultZone: http://113.31.144.141:9100/eureka #eureka server 地址
+      #defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/ #eureka server 地址
+    register-with-eureka: false #向Eureka中心注册自己的信息 (默认为true)
+    fetch-registry: false       #从Eureka Server获取服务信息 (默认为true)
+  server:
+    enable-self-preservation: false #关闭自我保护模式（默认为打开,建议生产环境打开自我保护机制）

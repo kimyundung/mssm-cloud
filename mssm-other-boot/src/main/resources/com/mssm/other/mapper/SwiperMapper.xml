@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mssm.other.mapper.SwiperMapper">
+    <!--1.添加轮播图-->
+    <insert id="addSwiper" parameterType="com.mssm.common.domain.Swiper" useGeneratedKeys="true" keyProperty="id">
+        insert into swiper (pid ,file_id, url) values (#{pid},#{fileId},#{url})
+    </insert>
+</mapper>

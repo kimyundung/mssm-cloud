@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mssm.other.mapper.CategoryMapper">
+
+    <!--1.查询所有-->
+    <select id="queryAll" resultType="com.mssm.common.domain.Category">
+        select * from category ORDER BY `order`,`name`
+    </select>
+
+    <!--2.添加-->
+    <insert id="addCate">
+        insert into category (name) values (#{name})
+    </insert>
+
+    <!--3.检查是否有相同-->
+    <select id="checkName" resultType="int">
+        SELECT COUNT(*) cnt FROM category WHERE name = #{name}
+    </select>
+
+    <!--4.更新-->
+    <update id="update" parameterType="com.mssm.common.domain.Category">
+        UPDATE category SET `name`=#{name}, `order`=#{order} WHERE id=#{id}
+    </update>
+</mapper>

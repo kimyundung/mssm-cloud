@@ -1,0 +1,23 @@
+server:
+  port: 9300
+
+spring:
+  application:
+    name: mssm-other-boot
+  datasource:
+    url: jdbc:mysql://106.75.253.40:3306/misssimple2?useUnicode=true&characterEncoding=utf8&serverTimezone=UTC
+    username: root
+    password: StOne@222
+
+eureka:
+  instance:
+    prefer-ip-address: true
+    instance-id: ${spring.cloud.client.ip-address}:${spring.application.name}:${server.port}:@project.version@
+    lease-renewal-interval-in-seconds: 30
+    lease-expiration-duration-in-seconds: 90
+  client:
+    service-url:
+      defaultZone: http://113.31.144.141:9100/eureka
+    register-with-eureka: true
+    fetch-registry: true
+    registry-fetch-interval-seconds: 30

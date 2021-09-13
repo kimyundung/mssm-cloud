@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mssm.other.mapper.SizeMapper">
+    <!--1.查询所有-->
+    <select id="queryAll" resultType="com.mssm.common.domain.Size">
+        select * from size order by `order`,`name`
+    </select>
+
+    <!--2.添加-->
+    <insert id="addSize">
+        INSERT INTO size (`name`) VALUES (#{name})
+    </insert>
+
+    <!--3.修改-->
+    <update id="updateSize" parameterType="com.mssm.common.domain.Size">
+        UPDATE size SET `name`=#{name}, `order`=#{order} WHERE id=#{id}
+    </update>
+</mapper>
